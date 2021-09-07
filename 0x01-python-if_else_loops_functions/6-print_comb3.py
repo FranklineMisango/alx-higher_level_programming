@@ -5,4 +5,3 @@ for i in range(10):
             "{}{}".format(i, j),
             end=", " if int(str(i) + str(j)) < 89 else "\n"
             )
-            
