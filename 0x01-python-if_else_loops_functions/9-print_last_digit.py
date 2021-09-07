@@ -1,7 +1,6 @@
-#!/usr/bin/env python3
+
+#!/usr/bin/python3
 def print_last_digit(number):
-    if number < 10:
-        return number
-    else:
-        ans = number % 10
-        return ans
+    tmp = int(repr(number)[-1])
+    print("{}".format(tmp), end="")
+    return tmp
