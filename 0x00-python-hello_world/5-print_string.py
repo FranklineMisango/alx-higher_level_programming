@@ -2,3 +2,4 @@
 str = "Holberton School"
 print(str * 3)
 print(str[:9])
+print("{}{}{}{}".format((str * 3), /n, (str[:9]), /n)
