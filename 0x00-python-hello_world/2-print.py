@@ -1,2 +1,3 @@
-#!/usr/bin/python3 
-print("\"Programming is like building a multilingual puzzle")
+#!/usr/bin/python3
+str1 = "Programming is like building a multilingual puzzle"
+print("{}".format(str1))
