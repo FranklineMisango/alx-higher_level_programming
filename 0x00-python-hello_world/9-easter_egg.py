@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-#import this
-
-#!/usr/bin/python3
 str = "The Zen of Python, by Tim Peters\n\nBeautiful is better than\
 ugly.\nExplicit is better than implicit.\nSimple is better than \
 complex.\nComplex is better than complicated.\nFlat is better \
