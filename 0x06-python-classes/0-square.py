@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-
 """
 This module defines a Square class
-Its implements value and type checks for its attributes
 """
 
+
 class Square:
-        """Square implementation
+    """This class is a squeleton for Square
     """
     pass
