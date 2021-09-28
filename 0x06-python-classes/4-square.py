@@ -1,7 +1,15 @@
 #!/usr/bin/python3
+"""
+This module defines a Square class
+Its implements value and type checks for its attributes with area function
+"""
+
+
 class Square:
+    """Square implementation
+    """
     def __init__(self, size=0):
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
@@ -10,11 +18,11 @@ class Square:
     @size.setter
     def size(self, size):
         if type(size) != int:
-            raise TypeError("size must be an integer")
+            raise TypeError('size must be an integer')
         elif size < 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError('size must be >= 0')
         self.__size = size
 
     def area(self):
-        return (self.__size * self.__size)
-
+        return (self.__size ** 2)
+    
