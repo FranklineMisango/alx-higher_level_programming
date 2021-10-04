@@ -6,6 +6,7 @@ Width and height must be integers otherwise raise a TypeError with a message
 They must be greater than zero else raise a ValueError with a message
 """
 
+
 class Rectangle:
     """
     Rectangle object with getters & setters
@@ -21,10 +22,10 @@ class Rectangle:
         Rectangle.number_of_instances += 1
 
     def __str__(self):
-       total = ""
-       if self.__height == 0 or self.width == 0:
-         return total
-       for i in range(self.__height):
+        total = ""
+        if self.__height == 0 or self.width == 0:
+            return total
+        for i in range(self.__height):
             total += (str(self.print_symbol) * self.__width)
             if i != self.__height - 1:
                 total += "\n"
