@@ -6,10 +6,12 @@ Width and height must be integers otherwise raise a TypeError with a message
 They must be greater than zero else raise a ValueError with a message
 """
 
+
 class Rectangle:
-    """
+    
+"""
     Rectangle object with getters & setters
-    """
+"""
 
     def __init__(self, width=0, height=0):
 
