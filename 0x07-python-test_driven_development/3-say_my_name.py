@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 This module defines `say_my_name`
