@@ -113,7 +113,7 @@ class Rectangle(Base):
         prints the rectangle in #
         """
         print('\n'*self.y, end='')
-        for l in range (self.height):
+        for l in range(self.height):
             print(' '*self.x + '#'*self.width)
 
     def update(self, *args, **kwargs):
