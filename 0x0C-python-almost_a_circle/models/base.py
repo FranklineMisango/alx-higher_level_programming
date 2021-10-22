@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-
 """
-This module introduces the class Base
+This module implements `base` class of all other classes in this project.
+The goal of it is to manage id attribute in all your future classes
+and to avoid duplicating the same code (by extension, same bugs)
 """
 import json
 import turtle
@@ -9,13 +10,15 @@ import turtle
 
 class Base:
     """
-    Implementation
+    implementation
     """
+
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """
-        Initialization
+        """initialization
+        Args:
+            id (int, optional): object id. Defaults to None.
         """
         if id is not None:
             self.id = id
@@ -32,18 +35,15 @@ class Base:
             return json.dumps(list_dictionaries)
 
     @classmethod
-    def save_to_file_csv(cls, list_objs):
-        """serializes a list of Rectangles/Squares in csv"""
-        filename = cls.__name__ + ".csv"
-        with open(filename, 'w', newline='') as csvfile:
-            csv_writer = csv.writer(csvfile)
-            if cls.__name__ is "Rectangle":
-                for obj in list_objs:
-                    csv_writer.writerow([obj.id, obj.width, obj.height,
-                                         obj.x, obj.y])
-            elif cls.__name__ is "Square":
-                for obj in list_objs:
-                    csv_writer.writerow([obj.id, obj.size, obj.x, obj.y])
+    def save_to_file(cls, list_objs):
+        """save to json file"""
+        filename = cls.__name__ + ".json"
+        text = []
+        if list_objs is not None:
+            for lst in list_objs:
+                text.append(lst.to_dictionary())
+        with open(filename, mode="w", encoding="utf-8") as f:
+            return f.write(Base.to_json_string(text))
 
     @staticmethod
     def from_json_string(json_string):
@@ -96,27 +96,18 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """deserializes a list of Rectangles/Squares in csv"""
+        """load from csv"""
         filename = cls.__name__ + ".csv"
-        l = []
-        try:
-            with open(filename, 'r') as csvfile:
-                csv_reader = csv.reader(csvfile)
-                for args in csv_reader:
-                    if cls.__name__ is "Rectangle":
-                        dictionary = {"id": int(args[0]),
-                                      "width": int(args[1]),
-                                      "height": int(args[2]),
-                                      "x": int(args[3]),
-                                      "y": int(args[4])}
-                    elif cls.__name__ is "Square":
-                        dictionary = {"id": int(args[0]), "size": int(args[1]),
-                                      "x": int(args[2]), "y": int(args[3])}
-                    obj = cls.create(**dictionary)
-                    l.append(obj)
-        except:
-            pass
-        return l
+        object_created = []
+
+        with open(filename, 'r') as f:
+            header = f.readline().replace('\n', '').split(',')
+            for el in f.readlines():
+                values = map(int, el.replace('\n', '').split(','))
+                data = dict(zip(header, values))
+                object_created.append(cls.create(**data))
+
+        return object_created
 
     @classmethod
     def draw(cls, list_rectangles, list_squares):
