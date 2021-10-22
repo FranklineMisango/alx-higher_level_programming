@@ -32,15 +32,18 @@ class Base:
             return json.dumps(list_dictionaries)
 
     @classmethod
-    def save_to_file(cls, list_objs):
-        """save to json file"""
-        filename = cls.__name__ + ".json"
-        text = []
-        if list_objs is not None:
-            for lst in list_objs:
-                text.append(lst.to_dictionary())
-        with open(filename, mode="w", encoding="utf-8") as f:
-            return f.write(Base.to_json_string(text))
+    def save_to_file_csv(cls, list_objs):
+        """serializes a list of Rectangles/Squares in csv"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            if cls.__name__ is "Rectangle":
+                for obj in list_objs:
+                    csv_writer.writerow([obj.id, obj.width, obj.height,
+                                         obj.x, obj.y])
+            elif cls.__name__ is "Square":
+                for obj in list_objs:
+                    csv_writer.writerow([obj.id, obj.size, obj.x, obj.y])
 
     @staticmethod
     def from_json_string(json_string):
