@@ -19,10 +19,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertAlmostEqual(max_integer([-10, -5, -7]), -5)
         self.assertAlmostEqual(max_integer([7]), 7)
 
-    def test_type(self):
-        """Checks that the right type is returned"""
-        self.assertRaises(ValueError, max_integer, ["a", 1, "s"])
-
     def test_empty(self):
         """Checks the result of an empty string"""
         self.assertAlmostEqual(max_integer([]), None)
