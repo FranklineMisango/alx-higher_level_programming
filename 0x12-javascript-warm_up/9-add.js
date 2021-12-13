@@ -1,0 +1,13 @@
+#!/usr/bin/node
+
+const x = process.argv[2];
+const y = process.argv[3];
+
+const num = parseInt(x);
+const num2 = parseInt(y);
+
+function add (a, b) {
+  console.log(a + b);
+}
+
+add(num, num2);

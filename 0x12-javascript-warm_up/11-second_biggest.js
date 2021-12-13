@@ -1,0 +1,13 @@
+#!/usr/bin/node
+
+const Myargs = process.argv.slice(2).map((x) => {
+  return parseInt(x);
+});
+
+if (Myargs.length <= 1) {
+  console.log(0);
+} else {
+  console.log(Myargs.sort((a, b) => {
+    return b - a;
+  })[1]);
+}
