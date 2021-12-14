@@ -9,7 +9,7 @@ module.exports = class Square extends BaseSquare {
 
   charPrint (c) {
     if (c === undefined) {
-    this.print(c);
+      this.print(c);
     } else {
       for (let i = 0; i < this.width; i++) {
         console.log(c.repeat(this.height));
