@@ -18,7 +18,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     command = """SELECT id, name
                  FROM states
-                 WHERE name LIKE BINARY {}
+                 WHERE name LIKE BINARY '{}'
                  ORDER BY id ASC""".format(argv[4])
 
     cur.execute(command)
