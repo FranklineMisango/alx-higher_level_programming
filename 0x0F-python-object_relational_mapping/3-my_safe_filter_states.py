@@ -16,12 +16,8 @@ if __name__ == "__main__":
                          port=3306)
 
     cur = db.cursor()
-    command = """SELECT id, name
-                 FROM states
-                 WHERE name LIKE %s
-                 ORDER BY id ASC"""
-
-    cur.execute(command, (sys.argv[4]))
+    cur.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
+                (argv[4],))
     xStates = cur.fetchall()
 
     for state in xStates:
