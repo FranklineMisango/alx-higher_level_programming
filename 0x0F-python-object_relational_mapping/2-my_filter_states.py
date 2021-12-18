@@ -19,7 +19,7 @@ if __name__ == "__main__":
     command = """SELECT id, name
                  FROM states
                  WHERE name LIKE BINARY '{}'
-                 ORDER BY id ASC""".format(argv[4])
+                 ORDER BY id ASC""".format(sys.argv[4])
 
     cur.execute(command)
     xStates = cur.fetchall()
