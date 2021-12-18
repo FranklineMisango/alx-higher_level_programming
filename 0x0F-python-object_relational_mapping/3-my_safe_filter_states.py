@@ -18,7 +18,7 @@ if __name__ == "__main__":
     cur = db.cursor()
     command = """SELECT id, name
                  FROM states
-                 WHERE name=%s
+                 WHERE name LIKE %s
                  ORDER BY id ASC"""
 
     cur.execute(command, (sys.argv[4]))
