@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
 """script that lists all states from the database hbtn_0e_0_usa:
-Your script should take 4 arguments:
+Your script should take 3 arguments:
 mysql username, mysql password
-and database name (no argument validation needed)
-state name searched"""
+and database name (no argument validation needed)"""
 
 import sys
 import MySQLdb
@@ -14,14 +13,13 @@ if __name__ == "__main__":
                          passwd=sys.argv[2],
                          db=sys.argv[3],
                          host='localhost',
-                         port=3306
-                         criteria=sys.argv[4])
+                         port=3306)
 
     cur = db.cursor()
     command = """SELECT id, name
                  FROM states
                  WHERE name LIKE BINARY {}
-                 ORDER BY id ASC""".format(criteria)
+                 ORDER BY id ASC""".format(argv[4])
 
     cur.execute(command)
     xStates = cur.fetchall()
