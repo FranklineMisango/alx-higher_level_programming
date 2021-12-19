@@ -17,15 +17,15 @@ if __name__ == "__main__":
 
     cur = db.cursor()
     command = """SELECT cities.id, city.name, states.name
-                 FROM cities
-                 INNER JOIN states ON cities.state_id = states.id
+                 FROM states
+                 INNER JOIN cities ON states.id = cities.state_id
                  ORDER BY cities.id ASC"""
 
     cur.execute(command)
-    xStates = cur.fetchall()
+    xCities = cur.fetchall()
 
-    for state in xStates:
-        print(state)
+    for city in xCities:
+        print(city)
 
     cur.close()
     db.close()
