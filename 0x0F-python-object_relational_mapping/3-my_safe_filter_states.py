@@ -16,8 +16,11 @@ if __name__ == "__main__":
                          port=3306)
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name='%s' ORDER BY id ASC",
-                (argv[4],))
+    command = """SELECT cities.id, cities.name, states.name
+             FROM states
+             INNER JOIN cities ON states.id = cities.state_id
+             ORDER BY cities.id ASC"""
+    cur.execute(command)
     xStates = cur.fetchall()
 
     for state in xStates:
