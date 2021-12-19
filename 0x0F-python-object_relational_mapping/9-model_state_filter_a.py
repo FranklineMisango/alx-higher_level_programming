@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""List all State objects that contain letter 'a' from db 'hbtn_0e_6_usa'
+Script should take 3 args: username, pw, and db name
 """
-List all state objects"""
-
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -13,5 +13,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for instance in session.query(State):
+    for instance in session.query(State).filter(State.name.like('%a%')):
         print("{:d}: {}".format(instance.id, instance.name))

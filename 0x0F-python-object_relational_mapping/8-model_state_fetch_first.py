@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+"""Print the first 'State' object from db 'hbtn_0e_6_usa'
+Script should take 3 args: username, pw, and db name
+Must use SQLAlchemy
 """
-List all state objects"""
-
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -13,5 +14,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for instance in session.query(State):
-        print("{:d}: {}".format(instance.id, instance.name))
+    res = session.query(State.id, State.name).first()
+    if (res is None):
+        print("Nothing")
+    else:
+        print("{:d}: {}".format(res[0], res[1]))

@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+"""Change name of State obj from db 'hbtn_0e_6_usa'
+Change name of State where "id = 2" to "New Mexico"
+Script should take 3 args: username, pw, and db name
 """
-List all state objects"""
-
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -13,5 +14,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for instance in session.query(State):
-        print("{:d}: {}".format(instance.id, instance.name))
+    res = session.query(State).filter(State.id == 2)
+    res.update({"name": ("New Mexico")})
+
+    session.commit()
