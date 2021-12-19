@@ -19,7 +19,7 @@ if __name__ == "__main__":
     command = """SELECT *
                  FROM states
                  WHERE name = %(state_name)s
-                 ORDER BY states.id ASC""", {'state_name':sys.argv[4]}
+                 ORDER BY states.id ASC""", {'state_name': sys.argv[4]}
 
     cur.execute(command)
     xStates = cur.fetchall()
