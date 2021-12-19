@@ -6,7 +6,8 @@ from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
 
-class state(Base):
+
+class State(Base):
     """State model"""
     __tablename__ = 'states'
     id = column(integer, primapry_key=True,
