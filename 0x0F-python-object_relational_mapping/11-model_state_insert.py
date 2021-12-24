@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-"""Add the State object "Louisiana" to db 'hbtn_0e_6_usa'
+
+"""
+Add the State object "Louisiana" to db 'hbtn_0e_6_usa'
 Print the new 'states.id' after creation
 Script should take 3 args: username, pw, and db name
 """
+
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

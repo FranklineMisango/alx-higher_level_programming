@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-"""Delete all State objects with name containing letter "a"
+
+"""
+Delete all State objects with name containing letter "a"
 from db 'hbtn_0e_6_usa'
 Script should take 3 args: username, pw, and db name
 """
+
 import sys
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
