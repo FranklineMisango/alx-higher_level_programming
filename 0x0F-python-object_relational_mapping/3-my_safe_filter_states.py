@@ -1,4 +1,4 @@
-B#!/usr/bin/python3
+BBB#!/usr/bin/python3
 
 """script that lists all states from the database hbtn_0e_0_usa:
 Your script should take 3 arguments:
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     command = """SELECT id, name
                  FROM states
                  WHERE name = %(state_name)s\
-                 ORDER BY id ASC""", {'state_name': sys.argv[4]}
+                 ORDER BY id ASC""".format('state_name': sys.argv[4])
 
     cur.execute(command)
     xStates = cur.fetchall()
