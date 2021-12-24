@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-List all state objects"""
+List all state objects from a given database
+Script should take 3 arguments:
+username, passwd, & db name"""
 
 import sys
 from sqlalchemy.orm import sessionmaker
