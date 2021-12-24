@@ -15,6 +15,6 @@ class State(Base):
     State model class """
 
     __tablename__ = 'states'
-    id = column(integer, primapry_key=True,
+    id = Column(Integer, primary_key=True,
                 nullable=False, autoincrement=True)
-    name = column(String(128), nullable=False)
+    name = Column(String(128), nullable=False)
