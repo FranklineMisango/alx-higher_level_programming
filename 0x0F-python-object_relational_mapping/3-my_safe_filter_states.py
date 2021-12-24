@@ -16,11 +16,11 @@ if __name__ == "__main__":
                          port=3306)
 
     cur = db.cursor()
-    command = """SELECT id, name
+    command = "SELECT id, name
                FROM states
                WHERE name=%s
-               ORDER BY id ASC"""
-    cur.execute(command, (sys.argv[4],))
+               ORDER BY id ASC"
+    cur.execute(command, (sys.argv[4]))
     xStates = cur.fetchall()
 
     for state in xStates:
