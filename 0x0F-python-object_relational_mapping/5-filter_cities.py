@@ -19,14 +19,14 @@ if __name__ == "__main__":
                          port=3306)
 
     cur = db.cursor()
-    cur.execute('SELECT cities.name \
+    cur.execute("SELECT cities.name \
                 FROM states \
                 INNER JOIN cities ON states.id = cities.state_id \
                 WHERE states.name=%s \
-                ORDER BY cities.id ASC', (sys.argv[4],))
+                ORDER BY cities.id ASC", (sys.argv[4]))
     cities = cur.fetchall()
 
-    print(",".join([x[0] for x in cities]))
+    print(", ".join([x[0] for x in cities]))
 
     cur.close()
     db.close()
