@@ -25,6 +25,6 @@ if __name__ == "__main__":
     cities = cur.fetchall()
 
     print(",".join([x[0] for x in cities]))
-    
+
     cur.close()
     db.close()
