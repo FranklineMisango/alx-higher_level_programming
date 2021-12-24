@@ -18,8 +18,8 @@ if __name__ == "__main__":
     cur = db.cursor()
     command = """SELECT id, name
                  FROM states
-                 WHERE name = %(state_name)s\
-                 ORDER BY id ASC""", (sys.argv[4],)
+                 WHERE name=%s
+                 ORDER BY id ASC""".format(sys.argv[4])
 
     cur.execute(command)
     xStates = cur.fetchall()
