@@ -1,2 +1,2 @@
-# alx-higher_level_programming
-Python and everything excitingly dangerous
+Python and JS  -> Higher Level Programming
+`
